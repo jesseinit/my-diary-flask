@@ -1,0 +1,18 @@
+language: python
+
+python:
+  - '3.6'
+
+install:
+  - pip install pipenv
+  - pipenv install
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database diary_test;' -U postgres
+  - pipenv run python3 manage.py db upgrade
+
+script:
+  - pipenv run pytest
