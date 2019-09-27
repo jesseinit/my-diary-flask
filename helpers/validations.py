@@ -59,7 +59,7 @@ def validate_json_request(request):
     def decorator(func):
         @wraps(func)
         def decorated_function(*args, **kwargs):
-            if (not request.data.decode('utf-8') or not request.is_json or
+            if (not request.data.decode('utf-8') or
                     not request.get_json(force=True).keys()):
                 raise ValidationError(
                     {

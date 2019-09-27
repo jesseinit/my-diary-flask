@@ -44,3 +44,11 @@ start:
 
 # #@-- help should be run by default when no command is specified --@#
 # default: help
+
+tests:
+	@echo ">>>>>Running Tests >>>>>"
+	pipenv run pytest
+
+tests_verbose:
+	@echo ">>>>>Running Tests Verbosely>>>>>"
+	pipenv run pytest -v -s --setup-show

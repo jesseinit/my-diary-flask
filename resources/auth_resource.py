@@ -19,7 +19,7 @@ class LoginUser(Resource):
             email=user_info['email']).first()
         if not exact_user:
             return error_response(message="No associated account " +
-                                  "with this email. 😩", status=409)
+                                  "with this email. 😩", status=404)
         is_valid_password = BCrypt.check_password_hash(
             exact_user.password, user_info['password'])
         if not is_valid_password:
