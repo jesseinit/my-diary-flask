@@ -1,5 +1,5 @@
 from app import db
-from helpers.database_helpers import Utility
+from .model_operations import Utility
 from sqlalchemy import func, ForeignKey, text
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID

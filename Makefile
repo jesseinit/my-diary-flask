@@ -21,6 +21,10 @@
 
 #@-- command to start the container in the background --@#
 start:
+	@echo "Staring Up Production Server"
+	gunicorn wsgi:app -b 0.0.0.0:8001 --workers=2 --access-logfile -
+
+dev:
 	@echo "Staring Up Dev Server"
 	pipenv run python manage.py runserver
 
