@@ -1,0 +1,48 @@
+version: "3"
+services:
+  diary-redis:
+    image: redis
+    restart: always
+    container_name: diary-redis
+    volumes:
+      - ./db_data/redis:/data
+    ports:
+      - "6001:6379"
+    networks:
+      - diary-backend
+
+  diary-db:
+    container_name: diary-db
+    restart: always
+    image: postgres:10.1
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=userdb
+    volumes:
+      - ./db_data/postgres:/var/lib/postgresql/data
+    ports:
+      - "6002:5432"
+    networks:
+      - diary-backend
+
+  api:
+    image: tudo-api
+    container_name: tudo-api
+    env_file:
+      - ./.env
+    build:
+      context: ./
+      dockerfile: docker/staging/Dockerfile
+    ports:
+      - "1000:1000"
+    volumes:
+      - .:/diary-api
+    depends_on:
+      - db
+      - redis
+    networks:
+      - diary-backend
+
+networks:
+  diary-backend:
