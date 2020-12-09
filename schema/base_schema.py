@@ -8,7 +8,7 @@ class BaseSchema(Schema):
     def load_json_into_schema(self, data):
         """Helper function to load raw json(deserialized data) request data
         into schema"""
-        from ..helpers.validations import ValidationError
+        from helpers.validations import ValidationError
         try:
             data = self.loads(data)
         except exceptions.ValidationError as e:
@@ -18,7 +18,7 @@ class BaseSchema(Schema):
 
     def load_object_into_schema(self, data, partial=False):
         """Helper function to load python objects into schema"""
-        from ..helpers.validations import ValidationError
+        from helpers.validations import ValidationError
 
         try:
             data = self.load(data, partial=partial)

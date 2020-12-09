@@ -6,12 +6,12 @@ from flask_restful import abort
 from flask import jsonify
 
 # Schemas
-from ..schema.auth_schema import LoginSchema, SignUpSchema
-from ..schema.diary_schema import DiarySchema
+from schema.auth_schema import LoginSchema, SignUpSchema
+from schema.diary_schema import DiarySchema
 
 # Utils
-from ..utils.validate_password import validate_password
-from ..utils.validate_email import validate_email
+from utils.validate_password import validate_password
+from utils.validate_email import validate_email
 
 
 class ValidationError(Exception):

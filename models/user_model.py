@@ -1,5 +1,5 @@
-from ..app import db, flask_bcrypt as BCrypt
-from .model_operations import Utility
+from app import db, flask_bcrypt as BCrypt
+from models.model_operations import Utility
 from sqlalchemy import func, event, text
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID

@@ -1,13 +1,13 @@
-from ..app import flask_bcrypt as BCrypt
+from app import flask_bcrypt as BCrypt
 from flask_jwt_extended import create_access_token
 from flask_restful import Resource
 from flask import request
 
-from ..models.user_model import User as UserModel
-from ..schema.user_schema import UserSchema
-from ..helpers.validations import (validate_login, validate_signup,
+from models.user_model import User as UserModel
+from schema.user_schema import UserSchema
+from helpers.validations import (validate_login, validate_signup,
                                    validate_json_request)
-from ..utils.handle_response import success_response, error_response
+from utils.handle_response import success_response, error_response
 
 
 class LoginUser(Resource):

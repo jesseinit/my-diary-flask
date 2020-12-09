@@ -1,11 +1,11 @@
 from flask_restful import Resource, abort
 from flask import request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from ..app import (flask_bcrypt as BCrypt)
-from ..schema.user_schema import UserSchema
-from ..models.user_model import User as UserModel
-from ..utils.handle_response import success_response, error_response
-from ..helpers.validations import validate_json_request
+from app import (flask_bcrypt as BCrypt)
+from schema.user_schema import UserSchema
+from models.user_model import User as UserModel
+from utils.handle_response import success_response, error_response
+from helpers.validations import validate_json_request
 
 
 class UserProfile(Resource):

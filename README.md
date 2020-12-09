@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 The followng are softwares you'll need to have installed and running on your system before attemping to get started with the project
 
 ```
-- Python >= 3.6
+- Python >= 3.8
 - Pipenv >= 2018.1.26
 - PostgreSQL >= 9.x
 - Git
@@ -24,7 +24,6 @@ To get the application running on your local environment, run the following comm
 ```
 - Create a directory (e.g my-diary-api) and cd into it
 - Run `git clone https://github.com/jesseinit/my-diary-flask.git .` to pull the code from Github to your machine
-- Run `pipenv install` to install the application's dependencies
 - Create a `.env` file populating it with actual values using the structure in the `.env.sample` file
 - Ensure that you have created a database for development and test environments
 ```
@@ -32,6 +31,7 @@ To get the application running on your local environment, run the following comm
 #### Starting the API
 
 - Run `pipenv shell` to activate the virtual environment(if its not already activated)
+- Run `pipenv install` to install the application's dependencies
 - Run `python manage.py runserver` to start the development server
 
 #### Running the tests

@@ -1,5 +1,5 @@
 import pytest
-from .app import create_app, db
+from app import create_app, db
 from models.diary_model import *
 from models.user_model import *
 

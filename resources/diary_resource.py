@@ -1,10 +1,10 @@
 from flask_restful import Resource, abort
 from flask import request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from ..helpers.validations import (validate_json_request, validate_uuid)
-from ..schema.diary_schema import DiarySchema
-from ..utils.handle_response import success_response, error_response
-from ..models.diary_model import Diary as DiaryModel
+from helpers.validations import (validate_json_request, validate_uuid)
+from schema.diary_schema import DiarySchema
+from utils.handle_response import success_response, error_response
+from models.diary_model import Diary as DiaryModel
 
 
 class DairyResource(Resource):

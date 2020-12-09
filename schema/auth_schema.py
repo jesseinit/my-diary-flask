@@ -1,11 +1,11 @@
 # from app import ma
 import re
 from marshmallow import fields
-from ..schema.base_schema import BaseSchema
+from schema.base_schema import BaseSchema
 #
-from ..utils.validate_email import validate_email
-from ..utils.validate_password import validate_password
-from ..utils.validate_fullname import validate_fullname
+from utils.validate_email import validate_email
+from utils.validate_password import validate_password
+from utils.validate_fullname import validate_fullname
 
 
 class LoginSchema(BaseSchema):

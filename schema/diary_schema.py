@@ -1,7 +1,7 @@
 import datetime as dt
 from marshmallow import fields, ValidationError, validates, validates_schema
-from ..schema.base_schema import BaseSchema
-from ..schema.user_schema import UserSchema
+from schema.base_schema import BaseSchema
+from schema.user_schema import UserSchema
 
 
 class DiarySchema(BaseSchema):

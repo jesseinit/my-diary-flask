@@ -1,9 +1,9 @@
 # from app import ma
 from marshmallow import fields
-from ..schema.base_schema import BaseSchema
-from ..utils.validate_email import validate_email
-from ..utils.validate_password import validate_password
-from ..utils.validate_fullname import validate_fullname
+from schema.base_schema import BaseSchema
+from utils.validate_email import validate_email
+from utils.validate_password import validate_password
+from utils.validate_fullname import validate_fullname
 
 
 class UserSchema(BaseSchema):
