@@ -1,17 +1,17 @@
 from flask_restful import Resource, abort
 from flask import request
-from app import (jwt_required, get_jwt_identity,
-                 flask_bcrypt as BCrypt)
-from schema.user_schema import UserSchema
-from models.user_model import User as UserModel
-from utils.handle_response import success_response, error_response
-from helpers.validations import validate_json_request
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from ..app import (flask_bcrypt as BCrypt)
+from ..schema.user_schema import UserSchema
+from ..models.user_model import User as UserModel
+from ..utils.handle_response import success_response, error_response
+from ..helpers.validations import validate_json_request
 
 
 class UserProfile(Resource):
     @jwt_required
     def get(self):
-        """Method to handle user data retrieval"""
+        """Method to handle user profile retrieval"""
         exact_user = UserModel.query.filter_by(
             id=get_jwt_identity().get('id')).first()
         if not exact_user:

@@ -50,4 +50,4 @@ pywebpush = "*"
 flask-cors = "==3.0.7"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"

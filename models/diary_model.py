@@ -1,4 +1,4 @@
-from app import db
+from ..app import db
 from .model_operations import Utility
 from sqlalchemy import func, ForeignKey, text
 from sqlalchemy.orm import relationship
@@ -9,11 +9,11 @@ from uuid import uuid4
 class Diary(db.Model, Utility):
     """ Diary model for storing user's diary information """
 
-    __tablename__ = "diaries"
+    __tablename__ = "Diaries"
     id = db.Column(UUID(as_uuid=True), unique=True,
                    nullable=False, default=lambda: uuid4().hex,
                    primary_key=True)
-    user_id = db.Column(UUID(as_uuid=True), ForeignKey("users.id"))
+    user_id = db.Column(UUID(as_uuid=True), ForeignKey("Users.id"))
     title = db.Column(db.String(255), nullable=False)
     content = db.Column(db.Text, nullable=False)
     created_on = db.Column(db.DateTime, server_default=func.now())

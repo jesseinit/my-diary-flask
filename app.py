@@ -1,15 +1,12 @@
 import os
-from config import config
+from .config import config
 from flask_cors import CORS
-from flask_jwt_extended import (
-    JWTManager, jwt_required, get_current_user, get_jwt_identity,
-    verify_jwt_in_request, get_jwt_claims)
+from flask_jwt_extended import JWTManager
 from flask_bcrypt import Bcrypt
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 from dotenv import load_dotenv
-
 
 load_dotenv()
 db = SQLAlchemy()
@@ -27,12 +24,12 @@ def create_app(config_name):
     jwt.init_app(app)
 
     # Imports to prevent cyclic imports
-    from helpers.validations import (
-        ValidationError, no_auth_header_handler, unsigned_token_handler,
-        my_expired_token_handler)
-    from resources.auth_resource import LoginUser, SignupUser
-    from resources.user_resource import UserProfile
-    from resources.diary_resource import DairyResource, SingleDiaryResource
+    from .helpers.validations import (ValidationError, no_auth_header_handler,
+                                      unsigned_token_handler,
+                                      my_expired_token_handler)
+    from .resources.auth_resource import LoginUser, SignupUser
+    from .resources.user_resource import UserProfile
+    from .resources.diary_resource import DairyResource, SingleDiaryResource
 
     # Endpoints
     api.add_resource(LoginUser, "auth/login")
@@ -58,3 +55,5 @@ def create_app(config_name):
 
 # app = create_app(os.getenv("FLASK_ENV") or "dev")
 # app.app_context().push()
+
+# print(app.config)

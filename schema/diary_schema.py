@@ -1,6 +1,7 @@
 import datetime as dt
 from marshmallow import fields, ValidationError, validates, validates_schema
-from schema.base_schema import BaseSchema
+from ..schema.base_schema import BaseSchema
+from ..schema.user_schema import UserSchema
 
 
 class DiarySchema(BaseSchema):
@@ -11,6 +12,8 @@ class DiarySchema(BaseSchema):
         "required": "You have not provided a diary content."})
     created_on = fields.DateTime()
     updated_on = fields.DateTime(default=dt.datetime.now())
+    user = fields.Nested(UserSchema, exclude=(
+        'password', 'push_sub', 'reminder', 'postCount',))
 
     @validates('title')
     def validate_title(self, title):

@@ -1,4 +1,4 @@
-from app import db, flask_bcrypt as BCrypt
+from ..app import db, flask_bcrypt as BCrypt
 from .model_operations import Utility
 from sqlalchemy import func, event, text
 from sqlalchemy.orm import relationship
@@ -9,7 +9,7 @@ from uuid import uuid4
 class User(db.Model, Utility):
     """ User model for storing user related information """
 
-    __tablename__ = "users"
+    __tablename__ = "Users"
     id = db.Column(UUID(as_uuid=True), unique=True,
                    nullable=False, default=lambda: uuid4().hex,
                    primary_key=True)
